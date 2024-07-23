@@ -1,0 +1,140 @@
+openapi: 3.0.0
+info:
+  title: Calculator API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /add:
+    post:
+      summary: Add two numbers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number1:
+                  type: number
+                  format: int
+                number2:
+                  type: number
+                  format: int
+      responses:
+        "200":
+          description: Successfully added two numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    format: int
+  /subtract:
+    post:
+      summary: Subtract two numbers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number1:
+                  type: number
+                  format: int
+                number2:
+                  type: number
+                  format: int
+      responses:
+        "200":
+          description: Successfully subtracted two numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    format: int
+  /multiply:
+    post:
+      summary: Multiply two numbers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number1:
+                  type: number
+                  format: int
+                number2:
+                  type: number
+                  format: int
+      responses:
+        "200":
+          description: Successfully multiplied two numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    format: int
+  /divide:
+    post:
+      summary: Divide two numbers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dividend:
+                  type: number
+                  format: int
+                divisor:
+                  type: number
+                  format: int
+      responses:
+        "200":
+          description: Successfully divided two numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    format: int
+
+  /sum:
+    post:
+      summary: Add all numbers in an array
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: number
+                format: int
+
+      responses:
+        "200":
+          description: Successfully divided two numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    format: int
