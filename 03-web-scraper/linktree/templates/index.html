@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Linktree | {{ .Title }}</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>{{ .Title }}</h1>
+    <p>Some interesting links</p>
+    <ul>
+      {{ range .Links }}
+      <li><a href="{{ .URL }}">{{.Name}}</a></li>
+      {{ end }}
+    </ul>
+    {{ if .Extra }}
+      <p>Oh, I almost forgot one: <a href="{{ .Extra.URL }}">{{.Extra.Name}}</a></p>
+    {{ end }}
+    <p>This website is part of <a href="https://youtube.com/@dreamsofcode">Dreams of Code Go Projects</a></p>
+  </body>
+</html>
