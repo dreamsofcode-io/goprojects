@@ -16,6 +16,10 @@ A simple decision tree diagram can be found here.
 
 To assist with building the web scraper, I've created a website with a number of different web pages and links, some of them dead, and some of them working. 
 
+You can either run this website yourself at localhost:8080 by entering into the [./scrapeme](./scrapeme) directory and running `go run .`
+
+or you can use the hosted version at [https://scrape-me.dreamsofcode.io](https://scrape-me.dreamsofcode.io)
+
 ## Technical Considerations
 
 This webscraper initially should focus on non JS rendered web pages, which require the use of a web browser based scraping solution, such as puppeteer or playwright.
