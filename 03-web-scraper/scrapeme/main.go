@@ -7,15 +7,16 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"strconv"
 
 	"github.com/dreamsofcode-io/scrape-me/internal/middleware"
 	"gopkg.in/yaml.v3"
 )
 
 type Config struct {
-	Pages     []Page
-	Status    []Status
-	Redirects []Redirect
+	Pages     []Page     `yaml:"pages"`
+	Status    []Status   `yaml:"statuses"`
+	Redirects []Redirect `yaml:"redirects"`
 }
 
 type Link struct {
@@ -38,6 +39,34 @@ type Page struct {
 type Status struct {
 	Path       string `yaml:"path"`
 	StatusCode int    `yaml:"status"`
+}
+
+type wrappedWriter struct {
+	http.ResponseWriter
+	statusCode int
+}
+
+func (w *wrappedWriter) WriteHeader(statusCode int) {
+	w.ResponseWriter.WriteHeader(statusCode)
+	w.statusCode = statusCode
+}
+
+func handleError(tmpl *template.Template, next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		wrapped := &wrappedWriter{
+			ResponseWriter: w,
+			statusCode:     http.StatusOK,
+		}
+
+		next.ServeHTTP(wrapped, r)
+
+		if wrapped.statusCode >= 400 {
+			tmpl.ExecuteTemplate(w, "error.html", map[string]string{
+				"ErrorMessage": http.StatusText(wrapped.statusCode),
+				"Status":       strconv.Itoa(wrapped.statusCode),
+			})
+		}
+	})
 }
 
 func main() {
@@ -94,7 +123,7 @@ func main() {
 	s := http.Server{
 		Addr: ":8080",
 		Handler: middleware.NoCache(
-			middleware.Logging(logger, r),
+			middleware.Logging(logger, handleError(tmpl, r)),
 		),
 	}
 
