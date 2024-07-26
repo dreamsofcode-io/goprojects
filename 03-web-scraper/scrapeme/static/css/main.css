@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  color-scheme: dark;
+}
+
+input {
+  --tw-ring-shadow: 0 0 #000 !important;
+}

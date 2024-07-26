@@ -1,0 +1,127 @@
+pages:
+  - path: "/{$}"
+    title: Scrape me!
+    links:
+      - name: About
+        url: /about
+      - name: Nirvana
+        url: /nirvana
+  - path: "/about"
+    title: About
+    links:
+      - name: Locations
+        url: /locations
+  - path: "/nirvana"
+    title: Nirvana
+    links:
+      - name: Bleach
+        url: /anime?name=bleach
+      - name: Nevermind
+        url: /nevermind
+      - name: In Utero
+        url: /in-utero
+  - path: "/anime"
+    title: Anime
+    links:
+      - name: Bleach
+        url: /anime?name=bleach
+      - name: Demon Slayer
+        url: /anime?name=demon%20slayer
+      - name: Jujutsu Kaizen
+        url: /anime?name=Jujutsu%20kaizen
+      - name: Naruto
+        url: /naruto
+      - name: My Hero Academia
+        url: /anime?name=mha
+  - path: "/nav"
+    title: Navigation
+    links:
+      - name: Home
+        url: /
+      - name: About
+        url: /about
+      - name: Locations
+        url: /locations
+      - name: Teapot
+        url: /teapot
+      - name: Starport
+        url: /starport
+    extra:
+      name: Moon
+      url: /moon
+  - path: "/naruto"
+    title: Uzumaki Naruto
+    links:
+      - name: Believe it!
+        url: /believe
+      - name: Databayo
+        url: /databayo
+  - path: "/locations"
+    title: Locations
+    links:
+      - name: Twitter
+        url: "https://twitter.com"
+      - name: Facebook
+        url: "https://facebook.com"
+      - name: Youtube
+        url: "https://youtube.com"
+    extra:
+      name: Navigation
+      url: "/nav"
+  - path: "/starport"
+    title: Starport
+    links:
+      - name: "Moon"
+        url: "/moon"
+      - nam: "Sun"
+        url: "/sun"
+  - path: "/moon"
+    title: Moon
+    links:
+      - name: "Busted"
+        url: "/busted"
+      - name: "Sun"
+        url: "/sun"
+  - path: "/stars"
+    title: Stars
+    links:
+      - name: "Busted"
+        url: "/busted"
+  - path: "/sun"
+    title: Sun
+    links:
+      - name: "Stars"
+        url: "/stars"
+      - name: "Earth"
+        url: "/earth"
+      - name: "Mars"
+        url: "/mars"
+      - name: "Venus"
+        url: "/venus"
+    extra:
+      name: "galaxy"
+      url: "/galaxy"
+  - path: "/galaxy"
+    title: Galaxy
+    links:
+      - name: "Recursion"
+        url: "/recursion"
+      - name: "mountain"
+        url: "/mountain"
+  - path: "/universe"
+    title: Universe
+    links:
+      - name: "Recursion"
+        url: "/recursion"
+statuses:
+  - path: "/teapot"
+    status: 418
+  - path: "/broken"
+    status: 500
+  - path: "/busted"
+    status: 401
+redirects:
+  - path: "/believe"
+    to: "/about"
+  - path: "/databayo"
+    to: "/anime"

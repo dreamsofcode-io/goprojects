@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" class="pref">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scrape Me | {{ .Title }}</title>
+    <link href="/static/css/style.css" rel="stylesheet">
+  </head>
+  <body class="flex flex-col gap-8 pt-4 justify-center items-center text-center">
+    <h1 class="text-4xl font-bold">{{ .Title }}</h1>
+    <h2 class="text-xl">Scrape me, my friend!</h2>
+    <ul class="pl-5 list-disc w-max text-left">
+      {{ range .Links }}
+      <li class="text-teal-400 hover:text-teal-200"><a href="{{ .URL }}">{{.Name}}</a></li>
+      {{ end }}
+    </ul>
+    {{ if .Extra }}
+      <p>Oh, I almost forgot one: <a class="text-teal-400 hover:text-teal-200" href="{{ .Extra.URL }}">{{.Extra.Name}}</a></p>
+    {{ end }}
+    <p>This website is part of <a class="text-teal-400 hover:text-teal-200" href="https://youtube.com/@dreamsofcode">Dreams of Code Go Projects</a></p>
+  </body>
+</html>
