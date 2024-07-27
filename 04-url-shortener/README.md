@@ -3,7 +3,7 @@
 The goal of this project is to create a full URL shortener web app
 using Go.
 
-To see this in action, I have my own version hosted at: https://drms.app
+To see this in action, I have my own version hosted at [https://dree.my](https://dree.my)
 
 Please feel free to reference this app when building your own.
 
