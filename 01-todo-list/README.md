@@ -17,6 +17,7 @@ $ tasks add "My new task"
 $ tasks list
 $ tasks complete 
 ```
+
 ### Add
 
 The add method should be used to create new tasks in the underlying data store. It should take a positional argument with the task description
@@ -73,6 +74,32 @@ The following method should be implemented to delete a task from the data store
 $ tasks delete <taskid>
 ```
 
+## Notable Packages Used
+
+- `encoding/csv` for writing out as a csv file
+- `strconv` for turning types into strings and visa versa
+- `text/tabwriter` for writing out tab aligned output
+- `os` for opening and reading files
+- `github.com/spf13/cobra` for the command line interface
+- `github.com/mergestat/timediff` for displaying relative friendly time differences (1 hour ago, 10 minutes ago, etc)
+ 
+## Custom Resources
+
+### Example Application
+
+You can find an example version of this todo list on the releases tab of this repo.
+
+### Example Data File
+
+Additionally, an example CSV looks like as follows:
+
+```
+ID,Description,CreatedAt,IsComplete
+1,My new task,2024-07-27T16:45:19-05:00,true
+2,Finish this video,2024-07-27T16:45:26-05:00,true
+3,Find a video editor,2024-07-27T16:45:31-05:00,false
+```
+
 ## Technical Considerations
 
 ### Stderr vs Stdout
@@ -111,15 +138,6 @@ func closeFile(f *os.File) error {
 }
 ```
 
-## Notable Packages Used
-
-- `encoding/csv` for writing out as a csv file
-- `strconv` for turning types into strings and visa versa
-- `text/tabwriter` for writing out tab aligned output
-- `os` for opening and reading files
-- `github.com/spf13/cobra` for the command line interface
-- `github.com/mergestat/timediff` for displaying relative friendly time differences (1 hour ago, 10 minutes ago, etc)
- 
 ## Extra Features
 
 - Change the IsComplete property of the Task data model to use a timestamp instead, which gives further information.
