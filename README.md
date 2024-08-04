@@ -29,3 +29,8 @@ This project is to build a URL Shortener website entirely using Go, including bo
 ## 05 - Currency Converter
 
 This last project is to build a currency converter for the terminal which uses the huh framework for creating a form and a third part API for obtaining the currency conversion data.
+
+
+# General Getting Started Advice
+
+For all projects, make sure you start off with a `main.go` and using `go mod init`
