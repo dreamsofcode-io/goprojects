@@ -87,7 +87,7 @@ $ tasks delete <taskid>
 
 ### Example Application
 
-You can find an example version of this todo list on the releases tab of this repo.
+You can find an [example version](https://github.com/dreamsofcode-io/goprojects/releases/tag/0.1.0) of this todo list on the releases tab of this repo.
 
 ### Example Data File
 
