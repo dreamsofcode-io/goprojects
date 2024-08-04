@@ -35,3 +35,20 @@ rateTo := data.Rates[currencyTo]
 
 converted := amount * (rateTo / rateFrom)
 ```
+
+### Supported Currencies
+
+For the initial implementation, it may make sense to support a few currencies at first.
+
+In my case, I supported only
+
+- USD
+- EUR
+- GBP
+- JPY
+
+## Improvements
+
+### More currency support
+
+The API you're using should provide a list of currencies they support. One improvement would be to use this list in order to define the supported currencies of your app. You'll want to consider how to make this a good UX however.
